@@ -11,9 +11,7 @@ def who_is_bigger(a, b , c)
 end
 
 def reverse_upcase_noLTA(str)
-	str = str.reverse 
-	str = str.upcase
-	str = str.delete "L T A", "^ "
+	str = str.reverse.upcase.delete("L T A", "^ ")
 	return str
 end
 
@@ -27,7 +25,14 @@ else
 end 
 end
 
+#Je dois trouver une formule pour retirer les doublons
 def magic_array(list)
-	list.flatten
-	list.sort
+	list.flatten!
+	list.sort!
+	list.map! { |e| e*2 }
+	list.each do |i|
+	if i %3 == 0 
+		list.delete(i)
+	end
+end
 end
